@@ -1,13 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
 
-var app = express();
+let app = express();
+
+
+const mongoose = require("mongoose"),
+      passport = require("passport"),
+      LocalStrategy = require("passport-local"),
+      bodyParser = require("body-parser"),
+      methodOverride = require("method-override");
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -18,6 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -26,6 +36,15 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// ========= Mongoose Configuration 
+mongoose.connect('mongodb://localhost/bthday-chat-local', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => console.log('Connected to DB!'))
+    .catch(error => console.log(error.message));
+
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -37,5 +56,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(3001, () => console.log("Port is listening"));
 
 module.exports = app;
