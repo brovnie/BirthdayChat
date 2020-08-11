@@ -38,7 +38,7 @@ app.use(function(req, res, next) {
 });
 
 // ========= Mongoose Configuration 
-mongoose.connect('mongodb://localhost/bthday-chat-local', {
+mongoose.connect('mongodb+srv://bthChatUser:nMdzASvd0lhkcs6T@cluster0.boljx.mongodb.net/<dbname>?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -57,6 +57,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(3001, () => console.log("Port is listening"));
+app.listen(process.env.PORT || 3001, () => console.log("Port is listening"));
 
 module.exports = app;
