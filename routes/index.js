@@ -18,11 +18,7 @@ router.get('/login', (req, res) => {
 });
 /*POST Log in */
 
-/*GET Register Page*/
-router.get('/signup', (req, res) => {
-  res.render('register');
-});
-/*POST Create new user  */
+
 /*GET Log out */
 
 
