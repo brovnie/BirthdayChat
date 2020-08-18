@@ -10,7 +10,7 @@ const UserSchema = new mongoose.Schema({
         datofbirth: String
     } 
 });
-console.log("here");
+
 UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", UserSchema);
