@@ -7,6 +7,7 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let registerRouter = require('./routes/api/v1/register');
+let loginRouter = require('./routes/api/v1/login');
 
 let app = express();
 
@@ -34,6 +35,7 @@ app.use(methodOverride("_method"));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/register",registerRouter);
+app.use("/login", loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
