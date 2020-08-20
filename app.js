@@ -15,8 +15,9 @@ const mongoose = require("mongoose"),
       LocalStrategy = require("passport-local"),
       bodyParser = require("body-parser"),
       methodOverride = require("method-override");
-let User = require("./modules/user.js");
-let UserPrivate = require("./modules/user.js");
+
+let User = require("./modules/user");
+let Account = require("./modules/account");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -57,10 +58,15 @@ app.use(require("express-session")({
 
 app.use(passport.initialize());
 app.use(passport.session());
-passport.use(new LocalStrategy(UserPrivate.authenticate()));
-passport.serializeUser(UserPrivate.serializeUser());
-passport.deserializeUser(UserPrivate.deserializeUser());
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
 
+//recall user every time
+app.use((req,res,next) => {
+  res.locals.currentUser = req.user;
+  next();
+});
 
 // error handler
 app.use(function(err, req, res, next) {

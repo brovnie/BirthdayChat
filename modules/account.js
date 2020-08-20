@@ -4,11 +4,11 @@
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-const AccessSchema = new mongoose.Schema({
+const AccountSchema = new mongoose.Schema({
     username: String,
     password: String
 });
 
-AccessSchema.plugin(passportLocalMongoose);
+AccountSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model("Access", AccessSchema);
+module.exports = mongoose.model("Account", AccountSchema);
