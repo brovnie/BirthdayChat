@@ -4,36 +4,54 @@
 //
 
 let express = require('express');
-let router = express.Router();
+let router =  express.Router();
 let passport = require("passport");
-let User = require("../../../modules/user");
+let User = require("../../../modules/access");
+let UserPrivate = require("../../../modules/user");
 
 /*GET Register Page*/
 router.get('/', (req, res) => {
     res.render('register');
   });
+
 /* POST Save email and password  */
-router.post('/', (req,res) => {
-    // dummie data
-    let email = "abc1@test.com";
-    let fakePassword = "password";
+router.post('/', (req,res,next) => {
+
+    //middleware - check password
+    if(req.body.password1 == req.body.password2){
+      let password = req.body.password1;
+    } else {
+      res.send("not");
+    }
+    let password = req.body.password1;
+
+
+// save date
+let email = req.body.email;
     let userDetails = {
-      firstname: "Test First name",
-      lastname: "test last name",
-       datofbirth: "00-00-0000"
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+       datofbirth: req.body.dateofbirth
     };
+    
 
-    let newUser = User({username: email, userDetails: userDetails});
+      //format date 
+let dateBefore = req.body.dateofbirth.split("-").reverse();
+let dateAfter = dateBefore[0] + "-" + dateBefore[1] + "-" + dateBefore[2];
 
-    User.register(newUser, fakePassword, (err, user) => {
+
+//save user
+    let newUser = User({username: email});
+
+    User.register(newUser, req.body.password1 , (err, user) => {
       if(err){
-          res.render("register");
-          console.log(err);
+        res.send(err);
       }
+
       passport.authenticate("local")(req,res, () => {
-          res.send("success new user is " + user.userDetails.firstname);
-          
-      });
+
+        res.redirect("/register");
+    });
   });
 
 });

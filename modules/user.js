@@ -1,14 +1,20 @@
+// Mongoose schema - detailed information about the user
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const UserSchema = new mongoose.Schema({
-    email: String,
-    password: String,
-    userDetails: {
-        firstname: String,
-        lastname: String,
-        datofbirth: String
-    } 
+    firstname: String,
+    lastname: String,
+    dateofbirth: String,
+    country: String,
+    city: String,
+    profile: {
+        id: {
+           type: mongoose.Schema.Types.ObjectId,
+           ref: "User"
+        }, 
+        username: String
+     }
 });
 
 UserSchema.plugin(passportLocalMongoose);

@@ -10,13 +10,13 @@ let registerRouter = require('./routes/api/v1/register');
 
 let app = express();
 
-
 const mongoose = require("mongoose"),
       passport = require("passport"),
       LocalStrategy = require("passport-local"),
       bodyParser = require("body-parser"),
       methodOverride = require("method-override");
-      let User = require("./modules/user.js");
+let User = require("./modules/user.js");
+let UserPrivate = require("./modules/user.js");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,20 +29,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-
-//Passport
-app.use(require("express-session")({
-  secret: "Some secret words",
-  resave: false,
-  saveUninitialized: false
-}));
-
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -60,6 +46,20 @@ mongoose.connect('mongodb+srv://bthChatUser:nMdzASvd0lhkcs6T@cluster0.boljx.mong
 })
     .then(() => console.log('Connected to DB!'))
     .catch(error => console.log(error.message));
+
+// ============== PASSPORT
+//Passport
+app.use(require("express-session")({
+  secret: "Some secret words",
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(UserPrivate.authenticate()));
+passport.serializeUser(UserPrivate.serializeUser());
+passport.deserializeUser(UserPrivate.deserializeUser());
 
 
 // error handler
