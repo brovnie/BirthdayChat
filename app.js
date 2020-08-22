@@ -32,16 +32,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use("/register",registerRouter);
-app.use("/login", loginRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
-
 // ========= Mongoose Configuration 
 mongoose.connect('mongodb+srv://bthChatUser:nMdzASvd0lhkcs6T@cluster0.boljx.mongodb.net/<dbname>?retryWrites=true&w=majority', {
     useNewUrlParser: true,
@@ -57,18 +47,31 @@ app.use(require("express-session")({
   resave: false,
   saveUninitialized: false
 }));
-
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
+
 
 //recall user every time
 app.use((req,res,next) => {
   res.locals.currentUser = req.user;
   next();
 });
+
+// ======== Routes
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use("/register",registerRouter);
+app.use("/login", loginRouter);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  next(createError(404));
+});
+
 
 // error handler
 app.use(function(err, req, res, next) {

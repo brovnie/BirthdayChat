@@ -2,16 +2,15 @@
 // 
 //
 //
-
 let express = require('express');
 let router = express.Router();
 let passport = require("passport");
 let Account = require("../../../modules/account");
-//let User = require("../../../modules/user");
+let User = require("../../../modules/user");
 
 /*GET Register Page*/
 router.get('/', (req, res) => {
-  res.render('register');
+  res.render('registration/register');
 });
 
 /* POST Save email and password  */
@@ -23,13 +22,39 @@ router.post('/', (req, res) => {
     if (err) {
       res.send(err);
     }
-    console.log(user.username);
+
     passport.authenticate("local")(req, res, () => {
-      res.send("passport works");
+      res.redirect("/register/user-details");
     });
-
-
   }); // end Access register
+});
+
+/* GET Register - user details */
+router.get('/user-details', (req, res) => {
+//  console.log(res.locals.currentUser);
+  res.render('registration/user-details');
+});
+
+router.post('/user-details', (req,res) =>{
+let  firstname = req.body.firstname;
+let  lastname = req.body.lastname;
+let  country = req.body.country;
+let city = req.body.city;
+let birthdate = req.body.birthdate;
+let account = {
+  id: req.user._id,
+  username: res.locals.currentUser.username
+};
+let newUser = {firstname: firstname, lastname: lastname, dateofbirth: birthdate, country: country, city: city, account: account}
+
+User.create(newUser, (err, user) => {
+  if (err) {
+    res.send(err);
+  }
+ // passport.authenticate("local")(req, res, () => {
+    res.redirect("/birthday/" + birthdate);
+ // });
+});
 
 });
 
@@ -56,5 +81,3 @@ module.exports = router;
 /*let dateBefore = req.body.dateofbirth.split("-").reverse();
 let dateAfter = dateBefore[0] + "-" + dateBefore[1] + "-" + dateBefore[2];
 */
-
-

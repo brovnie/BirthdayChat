@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
     dateofbirth: String,
     country: String,
     city: String,
-    profile: {
+    account: {
         id: {
            type: mongoose.Schema.Types.ObjectId,
            ref: "Access"
