@@ -9,17 +9,6 @@ router.get('/', function(req, res, next) {
 /* GET User page*/
 router.get("/birthday/:date", (req, res) => {
   res.render('profile');
-})
-
-
-/*GET Login Page*/
-router.get('/login', (req, res) => {
-  res.render('login');
 });
-/*POST Log in */
-
-
-/*GET Log out */
-
 
 module.exports = router;
