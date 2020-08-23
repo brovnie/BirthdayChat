@@ -3,6 +3,7 @@ let router = express.Router();
 let passport = require("passport");
 const userController = require('../../../controllers/auth');
 
+// ==== REGISTER
 /* GET Register Page*/
 router.get('/register', (req, res) => {
   res.render('registration/register');
@@ -19,21 +20,20 @@ router.get('/register/user-details', (req, res) => {
 router.post('/register/user-details', userController.userDetails);
 
 // ==== LOGIN
+/* GET Login page */
 router.get("/login", (req, res) => {
     res.render("login");
 });
+/* POST Log user in */
+router.post('/login',
+  passport.authenticate('local'), userController.login
+ );
 
-router.post("/login", passport.authenticate("local", 
-{ successRedirect: "/login",
-    failureRedirect: "/register"
- }), (req, res) =>{
-});
 
 //===== LOGOUT
 router.get("/logout", (req, res) => {
     req.logout();
-    console.log("success")
-    res.redirect("/register");
+    res.redirect("/");
 });
 
 module.exports = router;
