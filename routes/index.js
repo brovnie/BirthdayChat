@@ -1,17 +1,14 @@
 let express = require('express');
 let router = express.Router();
 let User = require('../modules/user');
+let birthdayChatController = require('../controllers/api/v1/birthdayChatApp');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
 /* GET User page*/
-router.get("/birthday/:date", (req, res) => {
-  console.log(res.locals.currentUser.username);
-  console.log(req.user);
-  //User.find();
-  res.render('profile');
-});
+router.get("/birthday/:date", birthdayChatController.birthdayPage);
 
 module.exports = router;

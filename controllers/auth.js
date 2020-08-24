@@ -1,8 +1,10 @@
-//Register 
+// Authentications routes
+
 let passport = require("passport");
 let Account = require("../modules/account");
 let User = require("../modules/user");
 
+//=== Register
 const signup = (req, res) => {
   let newUser = new Account({ username: req.body.username });
 
@@ -32,17 +34,14 @@ const userDetails = (req, res) => {
     if (err) {
       return res.send(err);
     }
-
-    let dateBefore = birthdate.split("-").reverse();
-    let dateAfter = dateBefore[0] + "-" + dateBefore[1] + "-" + dateBefore[2];
+    let dateAfter = findBirthdate(birthdate);
 
     res.redirect("/birthday/" + dateAfter);
   });
 }
 
+//=========== LOGIN
 const login = (req, res) => {
-  // console.log("User from system: " + req.user)
-  // `req.user` contains the authenticated user.
   let userId = req.user._id;
 
   User.findOne({ "account.id": userId }, (err, foundedUser) => {
@@ -52,13 +51,14 @@ const login = (req, res) => {
 
 };
 
+//======== 
+
 //find birthday
 let findBirthdate = (date) => {
   let dateBefore = date.split("-").reverse();
   let dateAfter = dateBefore[0] + "-" + dateBefore[1] + "-" + dateBefore[2];
   return dateAfter;
 };
-
 
 module.exports.signup = signup;
 module.exports.userDetails = userDetails;

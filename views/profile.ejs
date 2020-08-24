@@ -1,7 +1,14 @@
 <%- include("partials/header"); %>
 
-<h1>Hello from profile</h1>
+<h1>Chat with people born the same day as you</h1>
 
-<p>There are <span></span> born the same day.</p>
+<p>There are <span><%= nUsers  %></span> born the same day.</p>
 
+<div>
+    <div>
+        <h3><%= users.firstname %> </h3>
+        <p><%= users.country %></p>
+        <a href="/chat/"<%= users.id %>>Start Chat</a>
+    </div>
+</div>
 <%- include("partials/footer"); %>
