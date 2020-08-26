@@ -11,12 +11,12 @@
         </ul>
     </div>
     <div class="chat-messages">
-<div>
+<div class="message-container">
     <p><span>Username</span>date</p>
     <p>text</p>
 </div>
     </div>
-    <div class="chat-write" id="chat-form">
+    <div class="chat-write" id="chat-form" data-firstname="<%=currentUser.firstname%>" data-country="<%= currentUser.country%>" data-username="<%=currentUser.username%>">
         <form id="chat-msg">
             <input type="text" name="" id="message" autocomplete="off" placeholder="Write something">
             <input type="submit" value="Send">

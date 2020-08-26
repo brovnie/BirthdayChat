@@ -1,31 +1,34 @@
 let primus = new Primus();
-let chatForm = document.getElementById("chat-form"); 
-/*
-primus.on('reconnect', function () {
- console.log('primus: reconnect event happend');
-});
- primus.on('open', function () {
-   console.log('primus: connection established');
+let chatForm = document.getElementById("chat-form");
 
- });
- primus.on('error', function (err) {
-   console.log('primus: error event', err);
- });
- primus.on('data', function (data) {
-   console.log('primus: received data', data);
- });
- primus.on('end', function () {
-   console.log('primus: connection closed');
- });*/
-
- primus.on('data', (data) => {
+primus.on('data', (data) => {
     console.log(data);
-  });
+    displayMessage(data);
+});
 
- // Get text message
- chatForm.addEventListener('submit', (e) => {
-     e.preventDefault();
-     let msg = e.target.elements.message.value;
-     console.log(msg);
-     primus.write({ message: msg });
- })
+// Send text message
+chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let msg = e.target.elements.message.value;
+    let data = {
+        message: msg,
+        username: chatForm.dataset.username
+    }
+    primus.write(data);
+});
+
+let displayMessage = (msg) => {
+    const div = document.createElement('div');
+    //set time
+    let day = new Date();
+    let time = day.getHours() + ":" + day.getMinutes() + ":" + day.getSeconds();
+
+    //get user
+    let user = chatForm.dataset.firstname;
+
+    div.classList.add("message-container");
+    div.innerHTML = `<p><span>${user} </span>${time}</p>
+        <p> ${msg.message} </p>`;
+    document.querySelector('.chat-messages').appendChild(div);
+}; 
+

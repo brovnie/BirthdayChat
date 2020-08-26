@@ -7,6 +7,7 @@ const birthdayPage = (req, res) => {
         if (err) {
             res.sendr(err);
         }
+        let currentUser = foundedUser;
         let birthdate = foundedUser.dateofbirth;
         // find users born the same date
         User.find({ dateofbirth: birthdate , "account.id" : { $ne: userId }  }, function (err, foundedUsers) {
@@ -15,8 +16,13 @@ const birthdayPage = (req, res) => {
             }
             //count users
             let countedUsers = foundedUsers.length;
-            
-            res.render('profile', { nUsers: countedUsers, users: foundedUser });
+            let userData = { 
+                username:currentUser.account.username,
+                firstname: currentUser.firstname, 
+                lastname: currentUser.lastname, 
+                country: currentUser.country }
+                
+            res.render('profile', { nUsers: countedUsers, users: foundedUser,  currentUser: userData });
         });
     });
 };

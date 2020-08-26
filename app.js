@@ -23,7 +23,8 @@ const mongoose = require("mongoose"),
   bodyParser = require("body-parser"),
   methodOverride = require("method-override");
 
-const Account = require("./modules/account");
+const Account = require("./modules/account"),
+      Message = require("./modules/message");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -65,7 +66,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 //  Primus
 primus.on('connection', spark => {
   //  here goes text?
@@ -82,8 +82,22 @@ primus.on('connection', spark => {
   //send data
   spark.on("data", function (data) {
     primus.write(data);
+    saveInDB(data);
   });
+
+
 });
+
+let saveInDB = (data) => {
+
+  let msg = {username: data.username, message: data.message}
+  Message.create(msg, (err, message) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+};
+
 
 
 // ======== Routes
