@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>BdayChat</title>
@@ -9,30 +9,5 @@
     <p>Welcome to <%= title %></p>
     <p>check changes</p>
   </body>
-  <script src="javascripts/primus/primus.js"></script>
-  <script>
- console.log('test');
-
-var primus = new Primus('http://localhost:3000?query=string');
- 
-primus.on('welcome', function (msg) {
-
-  primus.send('private message', 'Bob', 'hi!');
-});
-    </script>
 </html>
-  -->
 
-  <!doctype html>
-<html lang=”en”>
-<head>
-  <meta charset=”utf-8">
-  <title>Primus</title>
-  <— The client is automatically served by primus. —>
-   <script src="javascripts/primus.js"></script>
-</head>
-<body>
-  <p>
-    Welcome to Primus example.
-  </p>
-  <script src="javascripts/chat.js"></script>

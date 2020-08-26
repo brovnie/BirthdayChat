@@ -11,14 +11,18 @@
         </ul>
     </div>
     <div class="chat-messages">
-
+<div>
+    <p><span>Username</span>date</p>
+    <p>text</p>
+</div>
     </div>
     <div class="chat-write">
-        <form action="">
-            <input type="text" name="" id="" autocomplete="off" placeholder="Write something">
+        <form id="chat-msg">
+            <input type="text" name="" id="msg" autocomplete="off" placeholder="Write something">
             <input type="submit" value="Send">
         </form>
     </div>
 </div>
-
+<script src="/javascripts/primus.js"></script>
+<script src="/javascripts/chat.js"></script>
 <%- include("partials/footer"); %>
