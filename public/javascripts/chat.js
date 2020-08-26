@@ -1,7 +1,7 @@
-var primus = new Primus();
-
-
-/*primus.on('reconnect', function () {
+let primus = new Primus();
+let chatForm = document.getElementById("chat-form"); 
+/*
+primus.on('reconnect', function () {
  console.log('primus: reconnect event happend');
 });
  primus.on('open', function () {
@@ -23,6 +23,9 @@ var primus = new Primus();
   });
 
  // Get text message
- createMessage => {
-     let message = document.getElementById(msg).value;
- }
+ chatForm.addEventListener('submit', (e) => {
+     e.preventDefault();
+     let msg = e.target.elements.message.value;
+     console.log(msg);
+     primus.write({ message: msg });
+ })

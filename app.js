@@ -15,7 +15,7 @@ const app = express();
 const Primus = require('primus')
   , http = require('http')
   , server = http.createServer(app),
-  primus = new Primus(server, { });
+  primus = new Primus(server, {});
 
 const mongoose = require("mongoose"),
   passport = require("passport"),
@@ -70,11 +70,18 @@ app.use((req, res, next) => {
 primus.on('connection', spark => {
   //  here goes text?
   console.log("Connection...");
- // console.log('connection id', spark.id);
+  let user = spark.id;
+  //detect new user
+  //current user
   spark.write("Welcome to chat " + spark.id);
-
-  spark.on('data', function (data) {
-    console.log('received data from the client', data);
+  //for rest of the users
+  primus.forEach( (spark, id, connections) => {
+    if (spark.id == user) return;
+    spark.write('New user!');
+  });
+  //send data
+  spark.on("data", function (data) {
+    primus.write(data);
   });
 });
 
