@@ -11,7 +11,7 @@ const indexRouter = require('./routes/index'),
 
 const app = express();
 
-// PR
+// PRIMUS
 const  Primus = require('primus.io')
       , http = require('http')
       , server = http.createServer(app),
@@ -60,10 +60,11 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 
-// Primus
+//  Primus
 primus.on('connection', function (spark) {
   //  here goes text?
-  primus.write('Some data');
+  spark.send("check");
+  primus.write('New user joined the chat!');
 });
 
 //recall user every time

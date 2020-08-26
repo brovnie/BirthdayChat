@@ -1,13 +1,24 @@
 <%- include("partials/header"); %>
-
-<h1>Chat with people born the same day as you</h1>
-
-<p>There are <span><%= nUsers  %></span> born the same day.</p>
-
 <!--Chat-->
+<div class="chat-container">
+    <div class="chat-header">
+        <h1>Chat with people born the same day as you</h1>
+        <p>There are <span><%= nUsers  %></span> born the same day.</p>
+    </div>
+    <div class="sidebar">
+        <ul class="list-users">
+            <li>Username</li>
+        </ul>
+    </div>
+    <div class="chat-messages">
 
-<div>
-
+    </div>
+    <div class="chat-write">
+        <form action="">
+            <input type="text" name="" id="" autocomplete="off" placeholder="Write something">
+            <input type="submit" value="Send">
+        </form>
+    </div>
 </div>
 
 <%- include("partials/footer"); %>
