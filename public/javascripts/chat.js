@@ -24,7 +24,7 @@ let displayMessage = (msg) => {
     let day = new Date();
     let time = day.getHours() + ":" + day.getMinutes() + ":" + day.getSeconds();
     let user = msg.username;
-    div.classList.add("message-container");
+    div.classList.add("chat-messages-item");
     if(msg.username == "system") {
         user = "";
         div.classList.add("system");

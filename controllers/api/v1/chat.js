@@ -22,7 +22,7 @@ const birthdayPage = (req, res) => {
                 lastname: currentUser.lastname, 
                 country: currentUser.country }
                 
-            res.render('profile', { nUsers: countedUsers, users: foundedUser,  currentUser: userData });
+            res.render('chat', { nUsers: countedUsers, users: foundedUser,  currentUser: userData });
         });
     });
 };

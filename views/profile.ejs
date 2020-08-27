@@ -7,13 +7,13 @@
     </div>
     <div class="sidebar">
         <ul class="list-users">
-            <li>Username</li>
+            <li class="list-item">Username</li>
         </ul>
     </div>
     <div class="chat-messages">
     </div>
-    <div class="chat-write" id="chat-form" data-firstname="<%=currentUser.firstname%>" data-country="<%= currentUser.country%>" data-username="<%=currentUser.username%>">
-        <form id="chat-msg">
+    <div class="chat-form" id="chat-form" data-firstname="<%=currentUser.firstname%>" data-country="<%= currentUser.country%>" data-username="<%=currentUser.username%>">
+        <form class="form__input" id="chat-msg">
             <input type="text" name="" id="message" autocomplete="off" placeholder="Write something">
             <input type="submit" value="Send">
         </form>

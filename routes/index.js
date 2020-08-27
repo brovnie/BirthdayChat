@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let User = require('../modules/user');
-let birthdayChatController = require('../controllers/api/v1/birthdayChatApp');
+let birthdayChatController = require('../controllers/api/v1/chat');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
