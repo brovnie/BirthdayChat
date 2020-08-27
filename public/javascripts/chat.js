@@ -3,6 +3,7 @@ let chatForm = document.getElementById("chat-form");
 
 primus.on('data', (data) => {
     console.log(data);
+
     displayMessage(data);
 });
 
@@ -22,12 +23,13 @@ let displayMessage = (msg) => {
     //set time
     let day = new Date();
     let time = day.getHours() + ":" + day.getMinutes() + ":" + day.getSeconds();
-
-    //get user
-    let user = chatForm.dataset.firstname;
-
+    let user = msg.username;
     div.classList.add("message-container");
-    div.innerHTML = `<p><span>${user} </span>${time}</p>
+    if(msg.username == "system") {
+        user = "";
+        div.classList.add("system");
+    }
+    div.innerHTML = `<p><span> ${user}</span>${time}</p>
         <p> ${msg.message} </p>`;
     document.querySelector('.chat-messages').appendChild(div);
 }; 

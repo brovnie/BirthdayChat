@@ -7,15 +7,15 @@ let logger = require('morgan');
 // ROUTERS
 const indexRouter = require('./routes/index'),
   usersRouter = require('./routes/users'),
-  userRoute = require('./routes/api/v1/user');
+  userRouter = require('./routes/api/v1/user');
 
 const app = express();
 
 // PRIMUS
-const Primus = require('primus')
-  , http = require('http')
-  , server = http.createServer(app),
-  primus = new Primus(server, {});
+const //Primus = require('primus'),
+    http = require('http'),
+    server = http.createServer(app),
+    primus = require("./primus/live").go(server);
 
 const mongoose = require("mongoose"),
   passport = require("passport"),
@@ -23,8 +23,7 @@ const mongoose = require("mongoose"),
   bodyParser = require("body-parser"),
   methodOverride = require("method-override");
 
-const Account = require("./modules/account"),
-      Message = require("./modules/message");
+const Account = require("./modules/account");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -66,44 +65,10 @@ app.use((req, res, next) => {
   next();
 });
 
-//  Primus
-primus.on('connection', spark => {
-  //  here goes text?
-  console.log("Connection...");
-  let user = spark.id;
-  //detect new user
-  //current user
-  spark.write("Welcome to chat " + spark.id);
-  //for rest of the users
-  primus.forEach( (spark, id, connections) => {
-    if (spark.id == user) return;
-    spark.write('New user!');
-  });
-  //send data
-  spark.on("data", function (data) {
-    primus.write(data);
-    saveInDB(data);
-  });
-
-
-});
-
-let saveInDB = (data) => {
-
-  let msg = {username: data.username, message: data.message}
-  Message.create(msg, (err, message) => {
-      if (err) {
-        console.log(err);
-      }
-    });
-};
-
-
-
 // ======== Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/', userRoute);
+app.use('/', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
