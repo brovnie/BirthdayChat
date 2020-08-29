@@ -12,6 +12,7 @@
     "ejs": "^2.6.2",
     "express": "^4.16.4",
     "express-session": "^1.17.1",
+    "gulp": "^4.0.2",
     "http": "0.0.1-security",
     "http-errors": "^1.6.3",
     "method-override": "^3.0.0",
@@ -24,5 +25,10 @@
     "primus": "^7.3.5",
     "primus.io": "^4.0.0",
     "ws": "^7.3.1"
+  },
+  "devDependencies": {
+    "gulp-ejs": "^5.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0"
   }
 }
