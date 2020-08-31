@@ -163,13 +163,31 @@ body {
     display: flex;
     flex-flow: column;
     justify-content: center;
+
+    @include pc {
+        padding-top: 100px;
+        flex-direction: row;
+        height: 50vh;
+        align-content: flex-end;
+        
+    }
+
     .container {
         z-index: 1;
         width: 80%;
         margin-top: 60px;
-        height: 40vh;
         margin-right: auto;
         margin-left: auto;
+
+        @include pc {
+            margin-left: 10%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
         h1{
             margin: auto;
             width: 90%;
@@ -180,15 +198,32 @@ body {
             background-color: white;
             display: inline-block;
             color: color("dark-blue");
+            @include pc {
+                font-size: 4.5em;
+                width: 9em;
+                margin:0;
+                margin-left: 0;
+                padding: 0.1em;
+                padding-left:0.3em;
+                text-align: left;
+            }
         }
         p{
             background-color: color('white');
             display: inline-block;
             font-size: 1.5em;
             padding:1em;
+            @include pc {
+                margin: 0;
+                margin-bottom: 1.5em;
+            }
         }
         .button-container {
             text-align: center;
+            padding-top: 2px;
+            @include pc {
+                text-align: right;
+            }
             .button {
                 margin-right: 0; 
 
@@ -202,6 +237,8 @@ body {
         z-index: 0;
         bottom:0;
     }
+
+ 
 }
 
 
