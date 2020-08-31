@@ -10,6 +10,10 @@ $media-queries: (
     "tablet": 600px,
     "pc": 800px
 );
+$fonts: (
+    "roboto": (Roboto, Arial, Helvetica, sans-serif),
+    "baloo": ("Baloo Chettan 2", Arial, Helvetica, sans-serif)
+);
 
 // ===== Using variables
 
@@ -18,6 +22,12 @@ $media-queries: (
     @return map-get($color-palette, $color-name);
 }
 
+//get font
+@function font($font-name){
+    @return map-get($fonts, $font-name);
+}
+
+// get media query
 @function screen($screenWidth){
     @return map-get($media-queries, $screenWidth);
 }

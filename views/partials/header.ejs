@@ -10,20 +10,26 @@
     <link href="/stylesheets/css/mini/normalizer.css" rel="stylesheet">
     <link href="/stylesheets/css/style.css" rel="stylesheet">
 </head>
-<nav>
-    <div class="nav-logo">
-        <a href="/"><img src="/images/logo.svg" alt="logo"></a>
-    </div>
-    <a href="" class="menu-mobile"><img src="/images/icon-menu.svg" alt="menu"></a>
-    <div class="menu-wrapper">
-        <ul class="menu-list">
-            <li><a href="/" class="menu-item">Home</a></li>
-            <li><a href="/login" class="menu-item">Login</a></li>
-            <li><a href="/chat" class="menu-item">Chat</a></li>
-            <li><a href="/logout" class="menu-item">Logout</a></li>
-        </ul>
-    </div>
-    </div>
-</nav>
 
 <body>
+
+    <nav class="nav">
+        <div class="nav-logo">
+            <a href="/">
+                <img src="/images/logo.svg" alt="logo">
+            </a>
+        </div>
+        <div class="nav-responsive">
+            <img src="/images/icon-menu.svg" class="hamburger-menu" alt="menu">
+            <input type="checkbox" class="toggler" name="" id="toggler">
+            <div class="nav-menu">
+                <ul class="menu-list">
+                    <li><a href="/" class="menu-item">Home</a></li>
+                    <li><a href="/login" class="menu-item">Login</a></li>
+                    <li><a href="/chat" class="menu-item">Chat</a></li>
+                    <li><a href="/logout" class="menu-item">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="background-container">

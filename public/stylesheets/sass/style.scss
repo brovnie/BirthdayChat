@@ -1,14 +1,108 @@
 @import './variables';
     
 body {    
-    background: color(marine); 
-    h1{
-        color: red;
+    background: color("white");
+    font-family: font(roboto);
+
+    .background-container{
+     background-image: url("/images/background-pattern.png");
+     background-repeat: repeat;
+     background-size: 100vh;
+     height: 100vh;
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     opacity: .3;
+     z-index: -1;
     }
-    @include tablet{
-        background: yellow;
+    /*@include tablet{
+       h1 {
+           color: green;
+       }
     }
     @include pc {
-        background: green;
-    }
+        h1{
+            color: pink;
+        }
+    }*/
 }
+//navigation
+.nav{
+    height: 60px;
+    background-color: color("white");
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+
+    .nav-logo{
+        img{
+            height: 45px;
+        }
+    }
+   
+    .nav-responsive{
+        .hamburger-menu , .toggler{
+            position: absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            width: 50px;
+            height:50px;
+        }
+        .toggler {
+            opacity:0;
+            z-index:2;
+            cursor: pointer;
+        }
+        #toggler:checked ~ .nav-menu{
+            opacity: 1;
+            visibility: visible;
+        } 
+        .nav-menu {
+            opacity:0;
+            position: absolute;
+            top: 60px;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index: -1;
+            visibility: hidden;
+            height: 100vh;
+            width: 100%;
+            background-color: color("orange");
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            .menu-list {
+                list-style: none;
+                width: 80%;
+                li{
+                    border-bottom: 2px solid color("white"); 
+                    padding: 1em;
+                    .menu-item {
+                        font-family: font("baloo");
+                        font-weight: bold;
+                        text-decoration: none;
+                        font-size: 3em;
+                        color: color("white");                        
+                }
+            }
+          }
+        }
+
+    }
+
+}
+.nav .nav-responsive .toggler:checked {
+    padding-top: 500px;
+}
+/*.nav .nav-col .nav-hamburger .toggler:checked ~ nav .nav-menu{
+  
+    background-color: yellow;
+    width: 100vw;
+    height: 100vh;
+  }*/
