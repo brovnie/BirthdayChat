@@ -34,22 +34,21 @@ body {
   text-align: center; }
   .nav .nav-logo img {
     height: 45px; }
-  .nav .nav-responsive .hamburger-menu, .nav .nav-responsive .toggler {
+  .nav .nav-menu .hamburger-menu, .nav .nav-menu .toggler {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     width: 50px;
     height: 50px; }
-  .nav .nav-responsive .toggler {
+  .nav .nav-menu .toggler {
     opacity: 0;
     z-index: 2;
     cursor: pointer; }
-  .nav .nav-responsive #toggler:checked ~ .nav-menu {
+  .nav .nav-menu #toggler:checked ~ .menu {
     opacity: 1;
     visibility: visible; }
-  .nav .nav-responsive .nav-menu {
-    opacity: 0;
+  .nav .nav-menu .menu {
     position: absolute;
     top: 60px;
     left: 0;
@@ -63,25 +62,58 @@ body {
     display: flex;
     align-content: center;
     justify-content: center; }
-    .nav .nav-responsive .nav-menu .menu-list {
+    .nav .nav-menu .menu .menu-list {
       list-style: none;
       width: 80%; }
-      .nav .nav-responsive .nav-menu .menu-list li {
+      .nav .nav-menu .menu .menu-list li {
         border-bottom: 2px solid #FFFFFF;
         padding: 1em; }
-        .nav .nav-responsive .nav-menu .menu-list li .menu-item {
+        .nav .nav-menu .menu .menu-list li:hover {
+          color: #25ACC9;
+          font-size: 1.2em;
+          border-bottom: none; }
+        .nav .nav-menu .menu .menu-list li .menu-item {
           font-family: "Baloo Chettan 2", Arial, Helvetica, sans-serif;
           font-weight: bold;
           text-decoration: none;
           font-size: 3em;
           color: #FFFFFF; }
-
-.nav .nav-responsive .toggler:checked {
-  padding-top: 500px; }
-
-/*.nav .nav-col .nav-hamburger .toggler:checked ~ nav .nav-menu{
-  
-    background-color: yellow;
-    width: 100vw;
-    height: 100vh;
-  }*/
+          .nav .nav-menu .menu .menu-list li .menu-item:hover {
+            color: #25ACC9; }
+  @media (min-width: 800px) {
+    .nav {
+      text-align: left;
+      display: flex;
+      align-content: center; }
+      .nav .nav-logo {
+        margin-right: auto;
+        margin-left: 2em; }
+        .nav .nav-logo img {
+          margin-top: 5px; }
+      .nav .nav-menu .hamburger-menu, .nav .nav-menu .toggler {
+        display: none; }
+      .nav .nav-menu .menu {
+        justify-self: flex-end;
+        margin-right: 2em;
+        visibility: visible;
+        z-index: 1;
+        position: static;
+        height: 60px;
+        background-color: #FFFFFF; }
+        .nav .nav-menu .menu .menu-list {
+          width: 100%;
+          display: flex;
+          align-content: center;
+          justify-content: space-evenly;
+          flex-direction: row; }
+          .nav .nav-menu .menu .menu-list li {
+            display: inline-block;
+            border: none;
+            padding: 0 1em; }
+            .nav .nav-menu .menu .menu-list li:hover {
+              font-size: 1em;
+              padding-bottom: 2.5em;
+              border-bottom: 2px solid #25ACC9; }
+            .nav .nav-menu .menu .menu-list li .menu-item {
+              font-size: 1.5em;
+              color: #25ACC9; } }

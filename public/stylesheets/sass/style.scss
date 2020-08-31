@@ -28,7 +28,8 @@ body {
         }
     }*/
 }
-//navigation
+
+// NAVIGATION header.ejs
 .nav{
     height: 60px;
     background-color: color("white");
@@ -44,7 +45,7 @@ body {
         }
     }
    
-    .nav-responsive{
+    .nav-menu{
         .hamburger-menu , .toggler{
             position: absolute;
             top:0;
@@ -58,12 +59,11 @@ body {
             z-index:2;
             cursor: pointer;
         }
-        #toggler:checked ~ .nav-menu{
+        #toggler:checked ~ .menu{
             opacity: 1;
             visibility: visible;
         } 
-        .nav-menu {
-            opacity:0;
+        .menu {
             position: absolute;
             top: 60px;
             left:0;
@@ -83,26 +83,74 @@ body {
                 li{
                     border-bottom: 2px solid color("white"); 
                     padding: 1em;
+                    &:hover {
+                        color: color("marine");
+                        font-size: 1.2em;
+                        border-bottom: none;
+                    }  
                     .menu-item {
                         font-family: font("baloo");
                         font-weight: bold;
                         text-decoration: none;
                         font-size: 3em;
-                        color: color("white");                        
+                        color: color("white");     
+                        &:hover{
+                            color: color("marine");
+                        }     
                 }
             }
           }
+
         }
 
     }
-
-}
-.nav .nav-responsive .toggler:checked {
-    padding-top: 500px;
-}
-/*.nav .nav-col .nav-hamburger .toggler:checked ~ nav .nav-menu{
-  
-    background-color: yellow;
-    width: 100vw;
-    height: 100vh;
-  }*/
+//media queries
+@include pc {
+    text-align: left;
+    display: flex;
+    align-content: center;
+    .nav-logo {
+        margin-right: auto;
+        margin-left: 2em;
+        img {
+            margin-top: 5px;
+        }
+    }
+  .nav-menu {
+    .hamburger-menu, .toggler {
+        display: none;
+    }
+    .menu {
+        justify-self: flex-end;
+        margin-right: 2em;
+        visibility: visible;
+        z-index: 1;
+        position: static;
+        height: 60px;
+        background-color: color("white");
+        .menu-list {
+            width: 100%;
+            display: flex;
+            align-content: center;
+            justify-content: space-evenly;
+            flex-direction: row;
+            li{
+                display: inline-block;
+                border: none;
+                padding:0 1em;
+             
+                &:hover {
+                    font-size: 1em;
+                    padding-bottom: 2.5em;
+                    border-bottom: 2px solid color("marine");
+                }  
+                .menu-item {
+                    font-size: 1.5em;
+                    color: color("marine");  
+            }
+        }
+      }
+    }
+  }
+} // en pc
+} // end nav
