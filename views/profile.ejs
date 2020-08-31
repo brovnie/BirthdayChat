@@ -12,10 +12,10 @@
     </div>
     <div class="chat-messages">
     </div>
-    <div class="chat-form" id="chat-form" data-firstname="<%=currentUser.firstname%>" data-country="<%= currentUser.country%>" data-username="<%=currentUser.username%>">
-        <form class="form__input" id="chat-msg">
-            <input type="text" name="" id="message" autocomplete="off" placeholder="Write something">
-            <input type="submit" value="Send">
+    <div class="chat-form-container" id="chat-form" data-firstname="<%=currentUser.firstname%>" data-country="<%= currentUser.country%>" data-username="<%=currentUser.username%>">
+        <form class="" id="chat-msg">
+            <input class="form__input" type="text" name="" id="message" autocomplete="off" placeholder="Write something">
+            <input class="button button-submit" type="submit" value="Send">
         </form>
     </div>
 </div>

@@ -1,0 +1,22 @@
+$color-palette: (
+    "orange" : #F49819,
+    "blue": #2699FB,
+    "marine": #25ACC9,
+    "dark-blue": #004857,
+    "white": #FFFFFF
+);
+$media-queries: (
+    "mobile": 100px,
+    "tablet": 600px,
+    "pc": 800px
+);
+
+//get color
+@function color($color-name){
+    @return max-get($color-palette, $color-name);
+}
+
+//get mediaqueries
+@function screenSize($width){
+    @return max-get($media-queries, $width);
+}

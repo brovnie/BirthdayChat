@@ -1,7 +1,7 @@
 <%- include("../partials/header"); %>
 
 
-<div>
+<div class="form-container" >
     <h2>Sign up</h2>
     <div class="progress-bar">
         <div>0</div>
@@ -9,18 +9,18 @@
         <div>0</div>
     </div>
     <form action="/register" method="POST">
-        <div>
+        <div >
             <label for="Email or username"></label>
-            <input type="text" name="username" placeholder="username">
+            <input type="text" name="username" placeholder="username" class="form__input">
         </div>
         <div>
             <label for="Password"></label>
-            <input type="password" name="password" placeholder="password">
+            <input type="password" name="password" placeholder="password" class="form__input">
         </div>
         <div>
             <label for="Repeat passport"></label>
-            <input type="password" name="password2" placeholder="Repeat password">
+            <input type="password" name="password2" placeholder="Repeat password" class="form__input">
         </div>
-        <button>Sign up</button>
+        <button class="button button-submit">Sign up</button>
     </form>
 </div>

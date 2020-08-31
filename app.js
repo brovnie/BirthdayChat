@@ -86,6 +86,6 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-server.listen(process.env.PORT || 3000, () => console.log("Port is listening"));
+server.listen(process.env.PORT || 3001, () => console.log("Port is listening"));
 
 module.exports = app;
