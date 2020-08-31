@@ -154,3 +154,16 @@ body {
   }
 } // en pc
 } // end nav
+
+
+// FOOTER footer.ejs
+
+footer {
+    width: 100%;
+    background-color: color('white');
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    height: 45px;
+    color: color('dark-blue');
+}

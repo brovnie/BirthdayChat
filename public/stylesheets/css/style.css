@@ -117,3 +117,12 @@ body {
             .nav .nav-menu .menu .menu-list li .menu-item {
               font-size: 1.5em;
               color: #25ACC9; } }
+
+footer {
+  width: 100%;
+  background-color: #FFFFFF;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  height: 45px;
+  color: #004857; }
