@@ -1,2 +1,10 @@
 body {
-  background: red; }
+  background: #25ACC9; }
+  body h1 {
+    color: red; }
+  @media (min-width: 600px) {
+    body {
+      background: yellow; } }
+  @media (min-width: 800px) {
+    body {
+      background: green; } }

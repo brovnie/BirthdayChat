@@ -1,5 +1,14 @@
 @import './variables';
     
 body {    
-    background: red; 
+    background: color(marine); 
+    h1{
+        color: red;
+    }
+    @include tablet{
+        background: yellow;
+    }
+    @include pc {
+        background: green;
+    }
 }

@@ -11,12 +11,27 @@ $media-queries: (
     "pc": 800px
 );
 
+// ===== Using variables
+
 //get color
 @function color($color-name){
-    @return max-get($color-palette, $color-name);
+    @return map-get($color-palette, $color-name);
 }
 
-//get mediaqueries
-@function screenSize($width){
-    @return max-get($media-queries, $width);
+@function screen($screenWidth){
+    @return map-get($media-queries, $screenWidth);
 }
+
+// media query for tablet
+@mixin tablet {
+   @media (min-width:  screen(tablet) ){
+       @content
+   }
+};
+
+// media query for pc
+@mixin pc {
+    @media (min-width: screen(pc)  ){
+        @content
+    }
+ };
