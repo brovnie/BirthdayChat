@@ -1,6 +1,7 @@
 body {
   background: #FFFFFF;
   font-family: Roboto, Arial, Helvetica, sans-serif;
+  color: #004857;
   /*@include tablet{
        h1 {
            color: green;
@@ -11,6 +12,8 @@ body {
             color: pink;
         }
     }*/ }
+  body a {
+    text-decoration: none; }
   body .background-container {
     background-image: url("/images/background-pattern.png");
     background-repeat: repeat;
@@ -75,7 +78,6 @@ body {
         .nav .nav-menu .menu .menu-list li .menu-item {
           font-family: "Baloo Chettan 2", Arial, Helvetica, sans-serif;
           font-weight: bold;
-          text-decoration: none;
           font-size: 3em;
           color: #FFFFFF; }
           .nav .nav-menu .menu .menu-list li .menu-item:hover {
@@ -118,11 +120,61 @@ body {
               font-size: 1.5em;
               color: #25ACC9; } }
 
+.header {
+  padding-top: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center; }
+  .header .container {
+    z-index: 1;
+    width: 80%;
+    margin-top: 60px;
+    height: 40vh;
+    margin-right: auto;
+    margin-left: auto; }
+    .header .container h1 {
+      margin: auto;
+      width: 90%;
+      text-align: center;
+      font-size: 3.5em;
+      font-family: "Baloo Chettan 2", Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      background-color: white;
+      display: inline-block;
+      color: #004857; }
+    .header .container p {
+      background-color: #FFFFFF;
+      display: inline-block;
+      font-size: 1.5em;
+      padding: 1em; }
+    .header .container .button-container {
+      text-align: center; }
+      .header .container .button-container .button {
+        margin-right: 0; }
+  .header .home-image {
+    width: 100%;
+    height: 60vh;
+    z-index: 0;
+    bottom: 0; }
+
 footer {
   width: 100%;
   background-color: #FFFFFF;
   text-align: center;
   position: fixed;
   bottom: 0;
-  height: 45px;
-  color: #004857; }
+  height: 45px; }
+
+.button {
+  padding: 1em 1.5em;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1em;
+  color: #FFFFFF;
+  letter-spacing: 0.2em; }
+
+.button-action {
+  background-color: #25ACC9; }
+  .button-action:hover {
+    background-color: #F49819; }
