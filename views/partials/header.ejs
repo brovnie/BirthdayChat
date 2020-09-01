@@ -28,7 +28,7 @@
                     <% if(!currentUser){ %>
                     <li><a href="/login" class="menu-item">Login</a></li>
                     <% } else { %>
-                    <li><a href="/chat" class="menu-item">Chat</a></li>
+                    <li><a href="/birthdaty/<%=currentUser.birthdate %>" class="menu-item">Chat</a></li>
                     <li><a href="/logout" class="menu-item">Logout</a></li>
                     <% } %>
                 </ul>

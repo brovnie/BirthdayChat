@@ -46,7 +46,7 @@ const login = (req, res) => {
 
   User.findOne({ "account.id": userId }, (err, foundedUser) => {
     let birthdate = findBirthdate(foundedUser.dateofbirth);
-    res.redirect('/birthday/' + birthdate);
+    res.redirect('/birthday/' + birthdate );
   });
 
 };
