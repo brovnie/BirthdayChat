@@ -3,7 +3,8 @@ $color-palette: (
     "blue": #2699FB,
     "marine": #25ACC9,
     "dark-blue": #004857,
-    "white": #FFFFFF
+    "white": #FFFFFF,
+    "white-opacity": rgba(255,255,255, 0.5)
 );
 $media-queries: (
     "mobile": 100px,

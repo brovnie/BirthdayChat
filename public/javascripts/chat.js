@@ -29,8 +29,8 @@ let displayMessage = (msg) => {
         user = "";
         div.classList.add("system");
     }
-    div.innerHTML = `<p><span> ${user}</span>${time}</p>
-        <p> ${msg.message} </p>`;
+    div.innerHTML = `<p>${user}  <span>${time}</span></p>
+        <p> ${msg.message} </p>` ;
     document.querySelector('.chat-messages').appendChild(div);
 }; 
 

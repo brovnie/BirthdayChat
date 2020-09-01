@@ -2,20 +2,17 @@
 <!--Chat-->
 <div class="chat-container">
     <div class="chat-header">
-        <h1>Chat with people born the same day as you</h1>
-        <p>There are <span><%= nUsers  %></span> born the same day.</p>
+        
+        <p>There are <span><%= nUsers  %></span> users born the same day.</p>
+        <h1>Live Chat</h1>
     </div>
-    <div class="sidebar">
-        <ul class="list-users">
-            <li class="list-item">Username</li>
-        </ul>
-    </div>
+    
     <div class="chat-messages">
     </div>
     <div class="chat-form" id="chat-form" data-firstname="<%=currentUser.firstname%>" data-country="<%= currentUser.country%>" data-username="<%=currentUser.username%>">
         <form class="" id="chat-msg">
             <input class="form__input" type="text" name="" id="message" autocomplete="off" placeholder="Write something">
-            <input class="button" type="submit" value="Send">
+            <input class="button button-message" type="submit" value="Send">
         </form>
     </div>
 </div>
