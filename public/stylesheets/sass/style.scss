@@ -8,6 +8,7 @@ body {
         text-decoration: none;
     }
     .background-container{
+        margin-top: 60px;
      background-image: url("/images/background-pattern.png");
      background-repeat: repeat;
      background-size: 100vh;
@@ -20,16 +21,6 @@ body {
      opacity: .3;
      z-index: -1;
     }
-    /*@include tablet{
-       h1 {
-           color: green;
-       }
-    }
-    @include pc {
-        h1{
-            color: pink;
-        }
-    }*/
 }
 
 // NAVIGATION header.ejs
@@ -41,7 +32,7 @@ body {
     top: 0;
     left: 0;
     text-align: center;
-
+z-index: 4;
     .nav-logo{
         img{
             height: 45px;
@@ -242,8 +233,16 @@ body {
 }
 
 // REGISTER register.ejs
+.form-container {
+    margin-top: 10px;
+    @include pc {
+        display: flex;
+        flex-flow: row;
+ align-content: center;
+        
+    }
+}
 .header-form {
-    margin-top: 90px;
     z-index: 1;
     p{
         text-align: center;
@@ -255,13 +254,27 @@ body {
         margin-right: auto;
         transform: rotate(-5deg);
         font-family: font('baloo');
+        @include pc {
+            font-size: 3em;
+            z-index: 2;
+            top: 40vh;
+            position: absolute;
+            width: 50%;
+        }
     }
     img {
         position: absolute;
         z-index:0;
+        @include pc {
+         width: 50%;
+            
+        }
+    }
+    @include pc{
+        margin-top: 15vh;
     }
 }
- .form-container {
+ .form-block {
      position: absolute;
      top: 45vh;
      left:0;
@@ -274,6 +287,13 @@ body {
      border-radius: 15px;
      width: 80%;
      padding-bottom: 1.5em;
+     
+     @include pc {
+        width: 30%;
+        min-width: 500px;
+        margin-right: 10%;
+        top: 30vh;
+     }
      .progress-bar {
          margin-bottom: 10px;
          width: 100%;
@@ -336,10 +356,12 @@ footer {
     position: fixed;
     bottom: 0;
     height: 45px;
+    z-index: 4;
 }
 
 
-// 
+//===== ASSETS: 
+
 .button {
     padding: 1em 1.5em;
     text-transform: uppercase;

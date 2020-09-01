@@ -1,20 +1,11 @@
 body {
   background: #FFFFFF;
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  color: #004857;
-  /*@include tablet{
-       h1 {
-           color: green;
-       }
-    }
-    @include pc {
-        h1{
-            color: pink;
-        }
-    }*/ }
+  color: #004857; }
   body a {
     text-decoration: none; }
   body .background-container {
+    margin-top: 60px;
     background-image: url("/images/background-pattern.png");
     background-repeat: repeat;
     background-size: 100vh;
@@ -34,7 +25,8 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  text-align: center; }
+  text-align: center;
+  z-index: 4; }
   .nav .nav-logo img {
     height: 45px; }
   .nav .nav-menu .hamburger-menu, .nav .nav-menu .toggler {
@@ -188,8 +180,15 @@ body {
     z-index: 0;
     bottom: 0; }
 
+.form-container {
+  margin-top: 10px; }
+  @media (min-width: 800px) {
+    .form-container {
+      display: flex;
+      flex-flow: row;
+      align-content: center; } }
+
 .header-form {
-  margin-top: 90px;
   z-index: 1; }
   .header-form p {
     text-align: center;
@@ -201,11 +200,24 @@ body {
     margin-right: auto;
     transform: rotate(-5deg);
     font-family: "Baloo Chettan 2", Arial, Helvetica, sans-serif; }
+    @media (min-width: 800px) {
+      .header-form p {
+        font-size: 3em;
+        z-index: 2;
+        top: 40vh;
+        position: absolute;
+        width: 50%; } }
   .header-form img {
     position: absolute;
     z-index: 0; }
+    @media (min-width: 800px) {
+      .header-form img {
+        width: 50%; } }
+  @media (min-width: 800px) {
+    .header-form {
+      margin-top: 15vh; } }
 
-.form-container {
+.form-block {
   position: absolute;
   top: 45vh;
   left: 0;
@@ -218,42 +230,48 @@ body {
   border-radius: 15px;
   width: 80%;
   padding-bottom: 1.5em; }
-  .form-container .progress-bar {
+  @media (min-width: 800px) {
+    .form-block {
+      width: 30%;
+      min-width: 500px;
+      margin-right: 10%;
+      top: 30vh; } }
+  .form-block .progress-bar {
     margin-bottom: 10px;
     width: 100%;
     display: flex;
     justify-content: center; }
-    .form-container .progress-bar .bar {
+    .form-block .progress-bar .bar {
       display: inline-block;
       width: 80px;
       height: 10px;
       background-color: #F49819;
       border-radius: 10px; }
-      .form-container .progress-bar .bar:first-child {
+      .form-block .progress-bar .bar:first-child {
         margin-right: 4px; }
-      .form-container .progress-bar .bar:last-child {
+      .form-block .progress-bar .bar:last-child {
         margin-left: 4px; }
-  .form-container h2 {
+  .form-block h2 {
     text-align: center;
     font-family: "Baloo Chettan 2", Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     font-size: 2.3em;
     color: #F49819; }
-  .form-container form div {
+  .form-block form div {
     padding-top: 1em;
     margin: auto;
     width: 90%;
     display: flex;
     flex-direction: column;
     font-weight: bold; }
-    .form-container form div input {
+    .form-block form div input {
       margin-top: 5px;
       font-weight: normal;
       padding: 0.5em 0em;
       border: 3px solid #25ACC9;
       border-radius: 10px; }
-      .form-container form div input::placeholder {
+      .form-block form div input::placeholder {
         padding-left: 10px; }
 
 footer {
@@ -262,7 +280,8 @@ footer {
   text-align: center;
   position: fixed;
   bottom: 0;
-  height: 45px; }
+  height: 45px;
+  z-index: 4; }
 
 .button {
   padding: 1em 1.5em;
