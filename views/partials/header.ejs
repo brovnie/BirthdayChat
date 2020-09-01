@@ -25,9 +25,12 @@
             <div class="menu">
                 <ul class="menu-list">
                     <li><a href="/" class="menu-item">Home</a></li>
+                    <% if(!currentUser){ %>
                     <li><a href="/login" class="menu-item">Login</a></li>
+                    <% } else { %>
                     <li><a href="/chat" class="menu-item">Chat</a></li>
                     <li><a href="/logout" class="menu-item">Logout</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>
