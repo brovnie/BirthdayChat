@@ -357,6 +357,13 @@ z-index: 4;
     display: flex;
     flex-direction: column;
     justify-items: center;
+    @include pc{
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 80px;
+        height: 90vh;
+    }
     .chat-header{
         flex-grow: 1;
         background-color: color("blue");
@@ -396,6 +403,12 @@ z-index: 4;
             &.system {
                 background-color: color("marine");
             }
+            .metadata{
+                font-weight: bold;
+                span{
+                    font-weight: normal;
+                }
+            }
         }
         
     }
@@ -409,9 +422,15 @@ z-index: 4;
             .form__input{
                 width: 80%;
                 margin-right: 7px;
+                @include pc {
+                    width: 95%;
+                }
             }
         }
-       
+       @include pc{
+           background-color: white;
+           max-height: 70px;
+       }
 
     }
 
