@@ -1,19 +1,27 @@
 <%- include("partials/header"); %>
-
 <div class="form-container">
-    <h2>Sign in</h2>
-    <form action="/login" method="POST">
-        <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" class="form__input">
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" name="password" class="form__input">
-        </div>
-        <input type="submit" value="Sign in" class="button button-submit">
-    </form>
-    <p>Don't have account?</p><a class="button button-link" href="/register">Click here to sign up</a>
-</div>
+    <div class="header-form">
+        <p>
+            Chat with people born the same day as you.
+        </p>
+        <img src="/images/form.svg" alt="party">
+    </div>
+    <div class="form-block">
+        <h2>Sign in</h2>
+        <form action="/login" method="POST">
+            <div>
+                <label for="username">Email or username</label>
+                <input type="text" name="username" class="form__input" placeholder="Enter email or username">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form__input" placeholder="Enter Password">
+            </div>
+            <div>
+                <button class="button button-submit">Next</button>
+            </div>
+        </form>
+        <p>Don't have account?</p><a class="button button-link" href="/register">Click here to sign up</a>
+    </div>
 
-<%- include("partials/footer"); %>
+    <%- include("partials/footer"); %>

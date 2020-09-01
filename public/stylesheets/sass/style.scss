@@ -373,6 +373,7 @@ footer {
 }
 .button-action {
     background-color:color('marine');
+    border: none;
     &:hover {
         background-color:color('orange');     
     }

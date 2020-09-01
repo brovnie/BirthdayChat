@@ -293,7 +293,8 @@ footer {
   letter-spacing: 0.2em; }
 
 .button-action {
-  background-color: #25ACC9; }
+  background-color: #25ACC9;
+  border: none; }
   .button-action:hover {
     background-color: #F49819; }
 
