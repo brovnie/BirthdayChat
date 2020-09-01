@@ -188,6 +188,74 @@ body {
     z-index: 0;
     bottom: 0; }
 
+.header-form {
+  margin-top: 90px;
+  z-index: 1; }
+  .header-form p {
+    text-align: center;
+    background-color: #FFFFFF;
+    width: 80%;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    transform: rotate(-5deg);
+    font-family: "Baloo Chettan 2", Arial, Helvetica, sans-serif; }
+  .header-form img {
+    position: absolute;
+    z-index: 0; }
+
+.form-container {
+  position: absolute;
+  top: 45vh;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #FFFFFF;
+  border: 3px solid #F49819;
+  border-radius: 15px;
+  width: 80%;
+  padding-bottom: 1.5em; }
+  .form-container .progress-bar {
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .form-container .progress-bar .bar {
+      display: inline-block;
+      width: 80px;
+      height: 10px;
+      background-color: #F49819;
+      border-radius: 10px; }
+      .form-container .progress-bar .bar:first-child {
+        margin-right: 4px; }
+      .form-container .progress-bar .bar:last-child {
+        margin-left: 4px; }
+  .form-container h2 {
+    text-align: center;
+    font-family: "Baloo Chettan 2", Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: 2.3em;
+    color: #F49819; }
+  .form-container form div {
+    padding-top: 1em;
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold; }
+    .form-container form div input {
+      margin-top: 5px;
+      font-weight: normal;
+      padding: 0.5em 0em;
+      border: 3px solid #25ACC9;
+      border-radius: 10px; }
+      .form-container form div input::placeholder {
+        padding-left: 10px; }
+
 footer {
   width: 100%;
   background-color: #FFFFFF;
@@ -209,3 +277,11 @@ footer {
   background-color: #25ACC9; }
   .button-action:hover {
     background-color: #F49819; }
+
+.button-submit {
+  background-color: #F49819;
+  border: none;
+  width: 100%; }
+
+.oppacity {
+  opacity: 0.5; }
