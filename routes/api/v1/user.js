@@ -2,7 +2,7 @@ let express = require('express');
 let router = express.Router();
 let passport = require("passport");
 const userController = require('../../../controllers/auth');
-
+const isLoggedIn = require('../../../middleware/index');
 // ==== REGISTER
 /* GET Register Page*/
 router.get('/register', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/register', (req, res) => {
 router.post('/register', userController.signup);
 
 /* GET Register - user details */
-router.get('/register/user-details', (req, res) => {
+router.get('/register/user-details', isLoggedIn, (req, res) => {
   res.render('registration/user-details');
 });
 /* POST Register- user details */
@@ -31,7 +31,7 @@ router.post('/login',
 
 
 //===== LOGOUT
-router.get("/logout", (req, res) => {
+router.get("/logout", isLoggedIn, (req, res) => {
     req.logout();
     res.redirect("/");
 });
