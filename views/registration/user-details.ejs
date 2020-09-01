@@ -1,33 +1,42 @@
 <%- include("../partials/header"); %>
-
-<div>
-    <h2>Sign up</h2>
-    <div class="progress-bar">
-        <div>0</div>
-        <div>0</div>
-        <div>0</div>
+<div class="form-container">
+    <div class="header-form">
+        <p>
+            Chat with people born the same day as you.
+        </p>
+        <img src="/images/form.svg" alt="party">
     </div>
-    <form action="/register/user-details" method="POST">
-        <div>
-            <label for="firstname">Firstname</label>
-            <input type="text" name="firstname" id="" placeholder="Firstname">
+    <div class="form-block">
+        <h2>Sign up</h2>
+        <div class="progress-bar">
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
-        <div>
-            <label for="lastname">Lastname</label>
-            <input type="text" name="lastname" id="" placeholder="Lastname">
-        </div>
-        <div>
-            <label for="birthdate">Date of birth</label>
-            <input type="date" name="birthdate" id="">
-        </div>
-        <div>
-            <label for="country">Country</label>
-            <%- include("./../partials/country-list"); %>
-        </div>
-        <div>
-            <label for="city">City</label>
-            <input type="text" name="city" id="" placeholder="City">
-        </div>
-        <input type="submit" value="Next">
-    </form>
-</div> 
+        <form action="/register/user-details" method="POST">
+            <div>
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" id="" placeholder="Firstname">
+            </div>
+            <div>
+                <label for="lastname">Lastname</label>
+                <input type="text" name="lastname" id="" placeholder="Lastname">
+            </div>
+            <div>
+                <label for="birthdate">Date of birth</label>
+                <input type="date" name="birthdate" id="">
+            </div>
+            <div>
+                <label for="country">Country</label>
+                <%- include("./../partials/country-list"); %>
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" name="city" id="" placeholder="City">
+            </div>
+            <div>
+                <button class="button button-submit">Go to chat</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include("../partials/footer"); %>
